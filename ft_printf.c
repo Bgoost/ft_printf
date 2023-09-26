@@ -6,13 +6,11 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:58:03 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/09/26 14:57:46 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:55:15 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
-
 
 
 int	ft_printf(char const *, . . .)
