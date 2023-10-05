@@ -1,47 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 16:19:26 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/09/26 18:43:38 by crmanzan         ###   ########.fr       */
+/*   Created: 2023/10/05 16:46:29 by crmanzan          #+#    #+#             */
+/*   Updated: 2023/10/05 17:16:09 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#include <printf.h>
 
-static void	ft_putfirst(void)
+int	printstr(char *str)
 {
-	write(1, "0x", 2);
-}
+	int	i;
 
-static void	ft_putchar_fd(unsigned long n, int fd)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	write(fd, &hex[n], 1);
-}
-
-void	ft_puthex(int n)
-{
-	if (n >= 10)
+	i = 0;
+	if (!str)
 	{
-		ft_putnbr_fd(n / 16);
-		ft_putchar_fd(n % 16, 1);
+		write(1, "(null)", 6);
+		return (6);
 	}
-	if (n < 10)
+	while(str[i])
 	{
-		ft_putchar_fd(n % 16, 1);
+		write(1, &str[i], 1);
+		i++;
 	}
+	return (i);
 }
-/*
-int	main()
-{
-	ft_putnbr_fd(1, 1);
-	ft_putnbr_fd(-2, 1);
-	return (0);
-}*/

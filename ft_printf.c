@@ -6,21 +6,22 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:58:03 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/04 18:41:18 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:18:57 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <stdarg.h>
-int ft_type(const char *c, void *type)
+#include <printf.h>
+
+int ft_type(const char *c, void *arg)
 {
 	int	i;
 
 	i = 0;
 	if (*c == 'c')
-
+		i += printchar((int)arg);
 	else if (*c == 's')
-
+		i += printstr((char *)arg);
+		/*
 	else if (*c == 'p')
 
 	else if (*c == 'd')
@@ -32,7 +33,7 @@ int ft_type(const char *c, void *type)
 	else if (*c == 'x')
 
 	else  if (*c == 'X')
-
+*/
 	return (i);
 
 }
@@ -52,10 +53,10 @@ int	ft_printf(char const *str, ...)
 			if(ft_strchr("cspdiuxX", *str))
 				i += ft_type(str, va_arg(ap, void *));
 			else if(*str == '%')
-				i += 1;/*print %*/
+				i += ft_putchar('%');/*print %*/
 		}
 		else
-			i += 1;/*print char*/
+			i += ft_putchar(*str);/*print char*/
 		str++;
 	}
 	va_end(ap);
