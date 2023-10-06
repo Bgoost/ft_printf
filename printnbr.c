@@ -1,50 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   printnbr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:19:26 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/06 14:34:25 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:06:08 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
+#include "printf.h"
+#include <stdio.h>
 
-static void	ft_putfirst(void)
+int printchar2(char c)
 {
-	write(1, "0x", 2);
+	write(1, &c, 1);
+	return 1;
 }
 
-static void	ft_putchar_fd(unsigned long n, int shift)
+int	printnbr(int n)
 {
-	char	*hex;
+	int len;
 
-	if (shift)
-		hex = "0123456789ABCDEF";
-	else
-		hex = "0123456789abcdef";
-	write(1, &hex[n], 1);
-}
-
-void	printhex(int n, int shift)
-{
+	len = 0;
+	if (n == -2147483648)
+	{
+		write(1, "-2", 2);
+		len += 2;
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		len += printchar2('-');
+		n = -n;
+	}
 	if (n >= 10)
 	{
-		printhex((n / 16), 1);
-		ft_putchar_fd(n % 16, shift);
+		len += printnbr(n / 10);
+		len += printchar2(n % 10 + '0');
 	}
 	if (n < 10)
 	{
-		ft_putchar_fd(n % 16, shift);
+		len += printchar2(n % 10 + '0');
+
 	}
+
+	return len;
 }
-/*
+
 int	main()
 {
-	printhex(11, 1);
-	write(1, "\n", 1);
-	printhex(11, 0);
+	printf("\n%i, %i, %i", printnbr(3), printnbr(123), printnbr(-2));
 	return (0);
-}*/
+}

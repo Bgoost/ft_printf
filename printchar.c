@@ -6,11 +6,12 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:46:29 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/05 17:17:22 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:55:42 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
+#include "printf.h"
+#include <unistd.h>
 
 int	printchar(char c)
 {

@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 17:21:35 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/05 17:48:25 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:10:31 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int	printptr(unsigned long long ptr)
 
 int main()
 {
-	char	a = 'a';
-	char	*p = &a;
-	printf("%i, %p", printptr(0x12345678), p);
+	//char	a = 'a';
+	//char	*p = &a;
+	printf("%i %p", printptr((unsigned long long)(void *)-1), (void *)-1);
 	return 0;
 }
