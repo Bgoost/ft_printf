@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:58:03 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/06 15:40:37 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:59:52 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_type(const char *c, void *arg)
 	else if (*c == 's')
 		i += printstr((char *)arg);
 	else if (*c == 'p')
-		i += printhexptr((unsigned long long)arg, 2);
+		i += printhexptr((unsigned long)arg, 2);
 	else if (*c == 'd')
 		return 0;
 	else if (*c == 'i')
