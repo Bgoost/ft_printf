@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:19:26 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/06 15:06:08 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:05:26 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -48,9 +48,9 @@ int	printnbr(int n)
 
 	return len;
 }
-
+/*
 int	main()
 {
 	printf("\n%i, %i, %i", printnbr(3), printnbr(123), printnbr(-2));
 	return (0);
-}
+}*/

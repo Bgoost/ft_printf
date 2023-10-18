@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:58:03 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/18 17:59:52 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:06:08 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int ft_type(const char *c, void *arg)
 	else if (*c == 'd')
 		return 0;
 	else if (*c == 'i')
-		return 0;
-
+		i += printnbr((int)arg);
 	else if (*c == 'u')
 		return 0;
 
