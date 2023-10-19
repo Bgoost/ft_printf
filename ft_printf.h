@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printstr.c                                         :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 20:52:10 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/19 21:02:24 by crmanzan         ###   ########.fr       */
+/*   Created: 2023/09/26 14:09:54 by crmanzan          #+#    #+#             */
+/*   Updated: 2023/10/19 20:47:05 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef PRINTF_H
+# define PRINTF_H
 
-int	printstr(char *str)
-{
-	int	i;
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
 
-	i = 0;
-	if (!str)
-	{
-		if (write(1, "(null)", 6) == -1)
-			return (-1);
-		return (6);
-	}
-	while (str[i])
-	{
-		if (write(1, &str[i], 1) == -1)
-			return (-1);
-		i++;
-	}
-	return (i);
-}
+int				ft_printf(char const *str, ...);
+int				printchar(char c);
+int				printstr(char *str);
+int				printhexptr(unsigned long hex, int shift);
+int				printnbr(int n);
+unsigned int	printunnbr(unsigned int n);
+char			*ft_strchr(const char *s, int c);
+#endif
