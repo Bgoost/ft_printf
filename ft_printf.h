@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 14:09:54 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/19 20:47:05 by crmanzan         ###   ########.fr       */
+/*   Created: 2023/10/20 10:54:37 by crmanzan          #+#    #+#             */
+/*   Updated: 2023/10/20 11:50:54 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <limits.h>
 
 int				ft_printf(char const *str, ...);
 int				printchar(char c);

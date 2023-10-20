@@ -6,11 +6,13 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:16:22 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/19 21:01:16 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:23:59 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <unistd.h>
+#include <stdio.h>
 
 static int	ft_hexptrlen(unsigned long n)
 {
@@ -77,7 +79,8 @@ int	printhexptr(unsigned long hex, int shift)
 /*
 int main()
 {
-	printhexptr((unsigned long)11, 0);
-	printhexptr((unsigned long)11, 1);
-	printhexptr((unsigned long)(void *)11, 2);
+	printf("\n%x, %x", INT_MAX, printhexptr(INT_MAX, 0));
+	//printhexptr((unsigned long)11, 0);
+	//printhexptr((unsigned long)11, 1);
+	//printhexptr((unsigned long)(void *)11, 2);
 }*/
