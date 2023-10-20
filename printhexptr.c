@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:16:22 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/20 12:23:59 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:00:55 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,55 +27,60 @@ static int	ft_hexptrlen(unsigned long n)
 	return (len);
 }
 
-static void	ft_puthexptr(unsigned long n, int shift)
+static int	ft_puthexptr(unsigned long n, int shift, int mayus)
 {
 	if (n >= 16)
 	{
-		ft_puthexptr(n / 16, shift);
-		ft_puthexptr(n % 16, shift);
+		if (ft_puthexptr(n / 16, shift, mayus) == -1
+			|| ft_puthexptr(n % 16, shift, mayus) == -1)
+			return (-1);
 	}
 	else
 	{
 		if (n < 10)
-			printchar(n + '0');
+		{
+			if (printchar(n + '0') == -1)
+				return (-1);
+		}
 		else
 		{
-			if (shift != 1)
-				printchar(n - 10 + 'a');
-			else
-				printchar(n - 10 + 'A');
+			if (printchar(n - 10 + 'a' + mayus) == -1)
+				return (-1);
 		}
 	}
+	return (1);
 }
 
-int	printhexptr(unsigned long hex, int shift)
+// len [0] == len og, len[1] == tmp
+int	printhexptr(unsigned long hex, int shift, int mayus)
 {
-	int	len;
-	int	tmp;
+	int	len[2];
 
-	len = 0;
-	tmp = 0;
+	len[0] = 0;
+	len[1] = 0;
 	if (shift == 2)
 	{
-		tmp = write(1, "0x", 2);
-		if (tmp == -1)
+		len[1] = write(1, "0x", 2);
+		if (len[1] == -1)
 			return (-1);
-		len += tmp;
+		len[0] += len[1];
 	}
 	if (!hex)
 	{
-		tmp = write(1, "0", 1);
-		if (tmp == -1)
+		len[1] = write(1, "0", 1);
+		if (len[1] == -1)
 			return (-1);
-		len += tmp;
+		len[0] += len[1];
 	}
 	else
 	{
-		ft_puthexptr(hex, shift);
-		len += ft_hexptrlen(hex);
+		if (ft_puthexptr(hex, shift, mayus) == -1)
+			return (-1);
+		len[0] += ft_hexptrlen(hex);
 	}
-	return (len);
+	return (len[0]);
 }
+// 1 linea
 /*
 int main()
 {

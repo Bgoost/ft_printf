@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:58:03 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/20 12:40:19 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/20 13:56:55 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@ static int	ft_type(const char *c, va_list ap)
 
 	i = 0;
 	if (*c == 'c')
-		i += printchar(va_arg(ap, int));
+		i = printchar(va_arg(ap, int));
 	else if (*c == '%')
-		i += printchar((char)'%');
+		i = printchar((char) '%');
 	else if (*c == 's')
-		i += printstr(va_arg(ap, char *));
+		i = printstr(va_arg(ap, char *));
 	else if (*c == 'p')
-		i += printhexptr(va_arg(ap, unsigned long), 2);
+		i = printhexptr(va_arg(ap, unsigned long), 2, 0);
 	else if (*c == 'd')
-		i += printnbr(va_arg(ap, int));
+		i = printnbr(va_arg(ap, int));
 	else if (*c == 'i')
-		i += printnbr(va_arg(ap, int));
+		i = printnbr(va_arg(ap, int));
 	else if (*c == 'u')
-		i += printunnbr(va_arg(ap, unsigned int));
+		i = printunnbr(va_arg(ap, unsigned int));
 	else if (*c == 'x')
-		i += printhexptr(va_arg(ap, unsigned int), 0);
+		i = printhexptr(va_arg(ap, unsigned int), 0, 0);
 	else if (*c == 'X')
-		i += printhexptr(va_arg(ap, unsigned int), 1);
+		i = printhexptr(va_arg(ap, unsigned int), 1, -32);
 	if (i == -1)
 		return (-1);
 	else
@@ -77,6 +77,8 @@ int	ft_printf(char const *str, ...)
 
 	va_start(ap, str);
 	result = process_specifiers(str, ap);
+	if (result == -1)
+		return (-1);
 	va_end(ap);
 	return (result);
 }
