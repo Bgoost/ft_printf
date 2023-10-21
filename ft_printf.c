@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:58:03 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/10/20 13:56:55 by crmanzan         ###   ########.fr       */
+/*   Updated: 2023/10/21 11:29:04 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,17 @@ int	ft_printf(char const *str, ...)
 /*
 int main(void)
 {
-	ft_printf("%c", '0');
+	int x = 50;
+	int *ptr = &x;
+
+	ft_printf("\n%c", '0');
+	ft_printf("\n%s", "jaja");
+	ft_printf("\n%p", ptr);
+	ft_printf("\n%d", *ptr);
+	ft_printf("\n%i", 123);
+	ft_printf("\n%u", -123);
+	ft_printf("\n%x", 11);
+	ft_printf("\n%X", 11);
+	ft_printf("\n%c, %%, %c0, %a", '0', 'i', 2);
 	return 0;
 }*/
